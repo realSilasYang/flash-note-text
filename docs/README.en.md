@@ -31,7 +31,7 @@ If Flash Note Text saves you time when capturing, formatting, or sharing text, y
 ## Install and run
 
 1. Install and launch [uTools](https://u.tools/).
-2. Download a package from [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases), or build the plugin locally.
+2. Install it from the [uTools plugin page](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/), download a package from [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases), or build the plugin locally.
 3. Load the generated `dist` directory in the uTools developer tools and search for Flash Note Text.
 
 ## Shortcuts

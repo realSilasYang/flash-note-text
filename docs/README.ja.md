@@ -30,7 +30,7 @@
 ## インストールと開発
 
 1. [uTools](https://u.tools/) をインストールして起動します。
-2. [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) から取得するか、ローカルでビルドします。
+2. [uTools プラグインページ](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/) から直接インストールするか、[GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) から取得してローカルでビルドします。
 3. uTools 開発者ツールで生成された `dist` ディレクトリを読み込みます。
 
 ```powershell

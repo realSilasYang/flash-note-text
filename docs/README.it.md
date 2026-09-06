@@ -30,7 +30,7 @@ Se Flash Note Text ti fa risparmiare tempo per annotare, formattare o condivider
 ## Installazione e sviluppo
 
 1. Installa e avvia [uTools](https://u.tools/).
-2. Scarica un pacchetto da [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) oppure compila localmente.
+2. Installalo dalla [pagina del plugin uTools](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/), scarica un pacchetto da [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) oppure compila localmente.
 3. Carica la cartella `dist` generata negli strumenti per sviluppatori di uTools.
 
 ```powershell

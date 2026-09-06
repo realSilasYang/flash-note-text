@@ -30,7 +30,7 @@ Nếu Flash Note Text giúp bạn tiết kiệm thời gian ghi chú, định d�
 ## Cài đặt và phát triển
 
 1. Cài đặt và mở [uTools](https://u.tools/).
-2. Tải gói từ [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) hoặc tự build.
+2. Cài đặt trực tiếp từ [trang plugin uTools](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/), tải gói từ [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) hoặc tự build.
 3. Nạp thư mục `dist` được tạo trong công cụ phát triển uTools.
 
 ```powershell

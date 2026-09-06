@@ -19,6 +19,7 @@
     <a href="#用户使用指南">用户指南</a> ·
     <a href="#快捷键">快捷键</a> ·
     <a href="#开发者指南">开发者指南</a> ·
+    <a href="https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/">uTools 插件页</a> ·
     <a href="https://github.com/realSilasYang/flash-note-text/issues">问题反馈</a>
   </p>
 </div>
@@ -99,7 +100,7 @@ LF、CRLF、CR 和混合换行均可识别；未主动修改混合换行格式�
 ## 安装与启动
 
 1. 安装并启动 [uTools](https://u.tools/)。
-2. 从 [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) 下载插件包，或在本地完成构建后加载 `dist` 目录。
+2. 从 [uTools 插件页](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/) 直接安装；也可以从 [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) 下载插件包，或在本地完成构建后加载 `dist` 目录。
 3. 在 uTools 中搜索“闪念文本”“闪念”或“文本编辑”打开插件。
 
 开发版本可以直接运行 `npm run release:build`，然后在 uTools 开发者工具中选择项目生成的 `dist` 目录。正式发布时请使用构建后的 `dist` 内容，不要把 `node_modules` 或源码目录作为插件目录加载。

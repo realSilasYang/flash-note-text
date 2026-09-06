@@ -30,7 +30,7 @@
 ## 安裝與開發
 
 1. 安裝並啟動 [uTools](https://u.tools/)。
-2. 從 [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) 下載外掛，或在本機建置。
+2. 從 [uTools 外掛頁](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/) 直接安裝，也可從 [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) 下載外掛或在本機建置。
 3. 在 uTools 開發者工具中載入產生的 `dist` 目錄。
 
 ```powershell

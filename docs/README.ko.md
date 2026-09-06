@@ -30,7 +30,7 @@ Flash Note Text가 기록, 텍스트 정리와 이미지 공유에 드는 시간
 ## 설치 및 개발
 
 1. [uTools](https://u.tools/)를 설치하고 실행합니다.
-2. [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases)에서 받거나 직접 빌드합니다.
+2. [uTools 플러그인 페이지](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/)에서 직접 설치하거나 [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases)에서 받거나 직접 빌드합니다.
 3. uTools 개발자 도구에서 생성된 `dist` 폴더를 불러옵니다.
 
 ```powershell

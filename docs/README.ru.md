@@ -30,7 +30,7 @@ Flash Note Text — плагин uTools для временных заметок
 ## Установка и разработка
 
 1. Установите и запустите [uTools](https://u.tools/).
-2. Скачайте пакет из [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) или соберите проект локально.
+2. Установите плагин на [странице uTools](https://www.u-tools.cn/plugins/detail/%E9%97%AA%E5%BF%B5%E6%96%87%E6%9C%AC/), скачайте пакет из [GitHub Releases](https://github.com/realSilasYang/flash-note-text/releases) или соберите проект локально.
 3. Загрузите созданную папку `dist` в инструментах разработчика uTools.
 
 ```powershell
