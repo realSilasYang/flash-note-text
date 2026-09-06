@@ -3,7 +3,7 @@
 
   <p><strong>简体中文</strong> · <a href="./docs/README.zh-HK.md">繁體中文（香港）</a> · <a href="./docs/README.zh-TW.md">繁體中文（台灣）</a> · <a href="./docs/README.en.md">English</a> · <a href="./docs/README.ja.md">日本語</a> · <a href="./docs/README.vi.md">Tiếng Việt</a> · <a href="./docs/README.ko.md">한국어</a> · <a href="./docs/README.es.md">Español</a> · <a href="./docs/README.fr.md">Français</a> · <a href="./docs/README.pt-BR.md">Português (Brasil)</a> · <a href="./docs/README.pt-PT.md">Português (Portugal)</a> · <a href="./docs/README.ru.md">Русский</a> · <a href="./docs/README.de.md">Deutsch</a> · <a href="./docs/README.it.md">Italiano</a></p>
 
-  <h1>闪念文本 · Flash Note Text</h1>
+  <h1>闪念文本</h1>
 
   <p><strong>随时记录、整理和分享文字。</strong></p>
 
