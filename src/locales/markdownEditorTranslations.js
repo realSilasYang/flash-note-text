@@ -1,0 +1,16 @@
+export default {
+  'zh-CN': { editor: { markdownCodeCopy: '复制代码', markdownCodeCopied: '已复制', markdownCodeLanguage: '代码语言', markdownCodeSearchLanguage: '搜索代码语言', markdownCodeNoResult: '没有匹配的语言', markdownLinkPlaceholder: '粘贴链接…' } },
+  'zh-HK': { editor: { markdownCodeCopy: '複製程式碼', markdownCodeCopied: '已複製', markdownCodeLanguage: '程式語言', markdownCodeSearchLanguage: '搜尋程式語言', markdownCodeNoResult: '沒有相符的語言', markdownLinkPlaceholder: '貼上連結…' } },
+  'zh-TW': { editor: { markdownCodeCopy: '複製程式碼', markdownCodeCopied: '已複製', markdownCodeLanguage: '程式語言', markdownCodeSearchLanguage: '搜尋程式語言', markdownCodeNoResult: '沒有相符的語言', markdownLinkPlaceholder: '貼上連結…' } },
+  en: { editor: { markdownCodeCopy: 'Copy code', markdownCodeCopied: 'Copied', markdownCodeLanguage: 'Code language', markdownCodeSearchLanguage: 'Search code languages', markdownCodeNoResult: 'No matching language', markdownLinkPlaceholder: 'Paste link…' } },
+  ja: { editor: { markdownCodeCopy: 'コードをコピー', markdownCodeCopied: 'コピーしました', markdownCodeLanguage: 'コード言語', markdownCodeSearchLanguage: 'コード言語を検索', markdownCodeNoResult: '一致する言語がありません' } },
+  vi: { editor: { markdownCodeCopy: 'Sao chep ma', markdownCodeCopied: 'Da sao chep', markdownCodeLanguage: 'Ngon ngu lap trinh', markdownCodeSearchLanguage: 'Tim ngon ngu lap trinh', markdownCodeNoResult: 'Khong co ngon ngu phu hop' } },
+  ko: { editor: { markdownCodeCopy: '코드 복사', markdownCodeCopied: '복사됨', markdownCodeLanguage: '코드 언어', markdownCodeSearchLanguage: '코드 언어 검색', markdownCodeNoResult: '일치하는 언어 없음' } },
+  es: { editor: { markdownCodeCopy: 'Copiar codigo', markdownCodeCopied: 'Copiado', markdownCodeLanguage: 'Lenguaje del codigo', markdownCodeSearchLanguage: 'Buscar lenguajes de codigo', markdownCodeNoResult: 'No hay ningun lenguaje coincidente' } },
+  fr: { editor: { markdownCodeCopy: 'Copier le code', markdownCodeCopied: 'Code copie', markdownCodeLanguage: 'Langage du code', markdownCodeSearchLanguage: 'Rechercher un langage', markdownCodeNoResult: 'Aucun langage correspondant' } },
+  'pt-BR': { editor: { markdownCodeCopy: 'Copiar codigo', markdownCodeCopied: 'Copiado', markdownCodeLanguage: 'Linguagem do codigo', markdownCodeSearchLanguage: 'Pesquisar linguagens', markdownCodeNoResult: 'Nenhuma linguagem correspondente' } },
+  'pt-PT': { editor: { markdownCodeCopy: 'Copiar codigo', markdownCodeCopied: 'Copiado', markdownCodeLanguage: 'Linguagem do codigo', markdownCodeSearchLanguage: 'Pesquisar linguagens', markdownCodeNoResult: 'Nenhuma linguagem correspondente' } },
+  ru: { editor: { markdownCodeCopy: 'Копировать код', markdownCodeCopied: 'Скопировано', markdownCodeLanguage: 'Язык кода', markdownCodeSearchLanguage: 'Поиск языка кода', markdownCodeNoResult: 'Подходящий язык не найден' } },
+  de: { editor: { markdownCodeCopy: 'Code kopieren', markdownCodeCopied: 'Kopiert', markdownCodeLanguage: 'Codesprache', markdownCodeSearchLanguage: 'Codesprache suchen', markdownCodeNoResult: 'Keine passende Sprache' } },
+  it: { editor: { markdownCodeCopy: 'Copia codice', markdownCodeCopied: 'Copiato', markdownCodeLanguage: 'Linguaggio del codice', markdownCodeSearchLanguage: 'Cerca linguaggi di codice', markdownCodeNoResult: 'Nessun linguaggio corrispondente' } }
+}

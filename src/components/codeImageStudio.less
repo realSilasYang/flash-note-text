@@ -1,0 +1,538 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("./code-image/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./code-image/fonts/geist-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("./code-image/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./code-image/fonts/fira-code-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Söhne Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./code-image/soehne-mono-buch.woff2") format("woff2");
+}
+
+.ci-studio-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  grid-template-rows: 50px minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  background: var(--share-studio-bg);
+}
+
+.ci-studio-shell > .share-studio-header { grid-column: 1 / -1; }
+
+.ci-studio-preview {
+  position: relative;
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 24px 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: var(--share-studio-bg);
+}
+
+.ci-studio-preview-scaler {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  flex: 0 0 auto;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+
+.ci-studio-canvas-wrap {
+  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  transform-origin: top left;
+}
+
+.ci-studio-canvas-wrap.is-resizing { user-select: none; }
+
+.ci-resize-handle {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: col-resize !important;
+  transform: translateY(-50%);
+  touch-action: none;
+}
+
+[data-preview-pan-content] .ci-resize-handle[data-preview-pan-ignore] { cursor: col-resize !important; }
+
+.ci-resize-handle::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--share-studio-accent);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.ci-resize-handle.is-left { left: -12px; }
+.ci-resize-handle.is-right { right: -12px; }
+
+.ci-resize-ruler {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  left: 0;
+  z-index: 3;
+  border-right: 1px solid var(--share-studio-border);
+  border-left: 1px solid var(--share-studio-border);
+  color: var(--share-studio-faint);
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.ci-resize-ruler::before {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 0;
+  left: 0;
+  border-top: 1px solid var(--share-studio-border);
+  content: "";
+}
+
+.ci-resize-ruler span { padding: 0 10px; background: var(--share-studio-bg); }
+
+.ci-studio-controls-wrap {
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 20;
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+  padding: 16px 0 16px 16px;
+  background: var(--share-studio-bg);
+}
+
+.ci-studio-controls {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-content: start;
+  align-items: flex-start;
+  padding: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px dashed var(--share-studio-border);
+  border-radius: 8px;
+  background: var(--share-studio-panel);
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 15px;
+}
+
+.ci-control-filename .share-studio-compact-input,
+.ci-theme-select,
+.ci-font-select,
+.ci-language-select { width: 100%; min-width: 0; }
+
+.ci-theme-option {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.ci-theme-option-icon,
+.ci-theme-option-swatch {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border: 1px solid rgba(127,127,127,.28);
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.ci-theme-option-icon { border-color: transparent; }
+.ci-theme-option-label { overflow: hidden; min-width: 0; text-overflow: ellipsis; white-space: nowrap; }
+
+.ci-export-frame {
+  position: relative;
+  overflow: hidden;
+  min-width: 520px;
+  max-width: 1280px;
+  color: var(--ray-foreground);
+  font-family: var(--code-image-font);
+  background: transparent;
+  isolation: isolate;
+}
+
+.ci-frame {
+  position: relative;
+  min-height: 120px;
+  background-image: var(--code-image-gradient);
+  transition: padding 180ms ease;
+  isolation: isolate;
+}
+
+.ci-export-frame.has-no-background .ci-frame {
+  background: transparent !important;
+}
+
+/* 让透明棋盘格始终限制在代码窗口轮廓内，预览时不会溢出圆角边界。 */
+.ci-theme-supabase.has-no-background .ci-frame { overflow: hidden; border-radius: 6px; }
+.ci-theme-tailwind.has-no-background .ci-frame,
+.ci-theme-clerk.has-no-background .ci-frame,
+.ci-theme-openai.has-no-background .ci-frame { overflow: hidden; border-radius: 8px; }
+.ci-theme-mintlify.has-no-background .ci-frame { overflow: hidden; border-radius: 12px; }
+.ci-export-frame.has-no-background:not(.ci-theme-supabase):not(.ci-theme-tailwind):not(.ci-theme-clerk):not(.ci-theme-openai):not(.ci-theme-mintlify):not(.ci-theme-prisma):not(.ci-theme-vercel):not(.ci-theme-rabbit) .ci-frame {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.ci-export-frame.has-no-background .ci-default-window,
+.ci-export-frame.has-no-background .ci-tailwind-window,
+.ci-export-frame.has-no-background .ci-clerk-window,
+.ci-export-frame.has-no-background .ci-openai-window,
+.ci-export-frame.has-no-background .ci-mintlify-window {
+  box-shadow: none;
+}
+
+.ci-transparent-pattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--share-studio-transparent-base);
+  background-image:
+    linear-gradient(45deg, var(--share-studio-transparent-check) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--share-studio-transparent-check) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--share-studio-transparent-check) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--share-studio-transparent-check) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+.ci-default-window {
+  display: flex;
+  min-height: 120px;
+  flex-direction: column;
+  border-radius: 10px;
+  background: rgba(255,255,255,.95);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.22),
+    0 0 0 1.5px rgba(0,0,0,.24),
+    0 22px 44px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+.ci-export-frame.is-dark .ci-default-window { background: rgba(0,0,0,.88); }
+
+.ci-default-header {
+  display: grid;
+  height: 34px;
+  padding: 0 16px;
+  align-items: center;
+  grid-template-columns: 48px 1fr 48px;
+  gap: 12px;
+}
+
+.ci-window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.ci-window-controls span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.ci-window-controls span:nth-child(1) { background: #ff5f57; }
+.ci-window-controls span:nth-child(2) { background: #febc2e; }
+.ci-window-controls span:nth-child(3) { background: #28c840; }
+
+.ci-default-file-name {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  overflow: hidden;
+  color: var(--ray-foreground);
+  font: 500 12px/1 Inter, "Segoe UI", sans-serif;
+  letter-spacing: .32px;
+  opacity: .72;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ci-default-file-name::placeholder { color: currentColor; opacity: .6; }
+
+.ci-editor {
+  --ci-editor-padding: 16px;
+  --ci-line-number-width: 48px;
+  display: grid;
+  min-width: 0;
+  width: 100%;
+  grid-template: 1fr / minmax(0, 1fr);
+  font-family: var(--ci-font-family);
+  font-size: 15px;
+  font-variant-ligatures: none;
+  font-weight: var(--ci-font-weight, 500);
+  letter-spacing: .1px;
+  line-height: 22.5px;
+  tab-size: 2;
+}
+
+.ci-highlighted-code,
+.ci-code-input {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 86px;
+  margin: 0;
+  padding: var(--ci-editor-padding);
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  tab-size: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ci-highlighted-code {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ci-code-input {
+  z-index: 2;
+  overflow: hidden;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  caret-color: var(--ray-foreground);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.ci-code-input::selection {
+  background: rgba(128, 174, 255, .3);
+  -webkit-text-fill-color: transparent;
+}
+
+.ci-code-line {
+  position: relative;
+  display: block;
+  min-height: 22.5px;
+  margin: 0 calc(-1 * var(--ci-editor-padding));
+  padding: 0 var(--ci-editor-padding);
+}
+
+.ci-code-line.is-highlighted {
+  background: var(--ray-highlight, rgba(128,128,128,.18));
+}
+
+.ci-code-line.is-highlighted::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--ray-highlight-border, currentColor);
+  content: "";
+}
+
+.ci-show-line-numbers .ci-highlighted-code,
+.ci-show-line-numbers .ci-code-input {
+  padding-left: var(--ci-line-number-width);
+}
+
+.ci-show-line-numbers .ci-code-line {
+  margin-left: calc(-1 * var(--ci-line-number-width));
+  padding-left: var(--ci-line-number-width);
+}
+
+.ci-show-line-numbers .ci-code-line::before {
+  position: absolute;
+  left: 12px;
+  width: 25px;
+  color: var(--line-number, rgba(128,128,128,.6));
+  content: attr(data-line);
+  text-align: right;
+}
+
+.ci-wide-line-numbers { --ci-line-number-width: 56px; }
+
+/* 这里是 Vercel 配色。 */
+.ci-theme-vercel .ci-frame,
+.ci-theme-rabbit .ci-frame { background: #000; }
+.ci-theme-vercel.is-light .ci-frame,
+.ci-theme-rabbit.is-light .ci-frame { background: #fff; }
+.ci-vercel-window { position: relative; }
+.ci-vercel-grid-horizontal::before,
+.ci-vercel-grid-horizontal::after {
+  position: absolute; z-index: 2; right: -120px; left: -120px; height: 1px;
+  background: #1a1a1a; content: ""; pointer-events: none;
+}
+.ci-vercel-grid-horizontal::before { top: 0; }
+.ci-vercel-grid-horizontal::after { bottom: 0; }
+.ci-vercel-grid-vertical::before,
+.ci-vercel-grid-vertical::after {
+  position: absolute; z-index: 2; top: -120px; bottom: -120px; width: 1px;
+  background: #1a1a1a; content: ""; pointer-events: none;
+}
+.ci-vercel-grid-vertical::before { left: 0; }
+.ci-vercel-grid-vertical::after { right: 0; }
+.ci-vercel-bracket { position: absolute; z-index: 3; width: 25px; height: 25px; pointer-events: none; }
+.ci-vercel-bracket::before,.ci-vercel-bracket::after { position: absolute; background: #515356; content: ""; }
+.ci-vercel-bracket::before { top: 12px; width: 25px; height: 1px; }
+.ci-vercel-bracket::after { left: 12px; width: 1px; height: 25px; }
+.ci-vercel-bracket-left { top: -12px; left: -12px; }
+.ci-vercel-bracket-right { right: -12px; bottom: -12px; }
+.ci-theme-vercel.is-light .ci-vercel-grid-horizontal::before,
+.ci-theme-vercel.is-light .ci-vercel-grid-horizontal::after,
+.ci-theme-vercel.is-light .ci-vercel-grid-vertical::before,
+.ci-theme-vercel.is-light .ci-vercel-grid-vertical::after { background: #ebebeb; }
+
+/* 这里是 Supabase 配色。 */
+.ci-theme-supabase .ci-frame { background: #121212; }
+.ci-theme-supabase.is-light .ci-frame { background: #fcfcfc; }
+.ci-supabase-window { overflow: hidden; border: 1px solid #292929; border-radius: 6px; background: #171717; }
+.ci-supabase-header { display: flex; height: 40px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px; border-bottom: 1px solid #292929; background: #1f1f1f; font: 500 14px/40px "IBM Plex Mono", monospace; }
+.ci-supabase-file-name { position: relative; min-width: 0; border: 0; outline: 0; background: transparent; color: #fafafa; font: inherit; }
+.ci-supabase-file-name::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: currentColor; content: ""; }
+.ci-supabase-language { color: #898989; }
+.ci-theme-supabase.is-light .ci-supabase-window { border-color: #dfdfdf; background: #fff; }
+.ci-theme-supabase.is-light .ci-supabase-header { border-color: #dfdfdf; background: #fcfcfc; }
+.ci-theme-supabase.is-light .ci-supabase-file-name { color: #171717; }
+
+/* 这里是 Tailwind 配色。 */
+.ci-theme-tailwind .ci-frame { background: #0f172a; }
+.ci-tailwind-window { position: relative; z-index: 1; border: 1px solid rgba(210,241,255,.25); border-radius: 8px; background: #1e293b; }
+.ci-tailwind-beams { position: absolute; z-index: -1; top: -200px; left: 50%; width: 1293px; max-width: none; transform: translateX(calc(-50% - 200px)); pointer-events: none; }
+.ci-tailwind-header { display: flex; height: 34px; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.ci-tailwind-header span { width: 10px; height: 10px; border-radius: 50%; background: #475569; }
+.ci-tailwind-grid-horizontal::before,.ci-tailwind-grid-horizontal::after { position: absolute; z-index: 2; right: -64px; left: -64px; height: 1px; background: rgba(255,255,255,.1); content: ""; pointer-events: none; }
+.ci-tailwind-grid-horizontal::before { top: -24px; }.ci-tailwind-grid-horizontal::after { bottom: -24px; }
+.ci-tailwind-grid-vertical::before,.ci-tailwind-grid-vertical::after { position: absolute; z-index: 2; top: -64px; bottom: -64px; width: 1px; background: rgba(255,255,255,.1); content: ""; pointer-events: none; }
+.ci-tailwind-grid-vertical::before { left: -24px; }.ci-tailwind-grid-vertical::after { right: -24px; }
+.ci-tailwind-gradient { position: absolute; z-index: -1; top: calc(100% + 24px); left: 20px; display: flex; width: 80%; height: 2px; }
+.ci-tailwind-gradient span { width: 100%; background: linear-gradient(90deg, transparent, #0ea5e9 32%, rgba(236,72,153,.3) 67%, transparent); filter: blur(2px); }
+.ci-theme-tailwind.is-light .ci-frame { background: #fff; }
+.ci-theme-tailwind.is-light .ci-tailwind-window { border-color: rgba(15,23,42,.1); background: rgba(255,255,255,.9); box-shadow: 0 2px 4px rgba(0,0,0,.06); }
+.ci-theme-tailwind.is-light .ci-tailwind-header { border-color: rgba(0,0,0,.1); }
+.ci-theme-tailwind.is-light .ci-tailwind-header span { background: #e2e8f0; }
+
+/* 这里是 Clerk 配色。 */
+.ci-theme-clerk .ci-frame { background: #222; }
+.ci-clerk-pattern { position: absolute; z-index: -1; bottom: 0; left: -32px; width: calc(100% + 64px); height: 128px; mask-image: radial-gradient(farthest-side at 50% 100%, #000, transparent); pointer-events: none; }
+.ci-clerk-window { position: relative; padding: 3px; border-radius: 8px; background: #111; box-shadow: 0 0 0 6px rgba(0,0,0,.08), 0 30px 30px rgba(0,0,0,.18); }
+.ci-clerk-code { border-radius: 5px; background: #191919; box-shadow: 0 0 0 1px rgba(0,0,0,.08); --line-number: #484848; overflow: hidden; }
+.ci-theme-clerk.is-light .ci-frame { background: #f9f9f9; }
+.ci-theme-clerk.is-light .ci-clerk-window { background: #f8f8f8; box-shadow: 0 0 0 8px rgba(0,0,0,.02), 0 25px 30px rgba(0,0,0,.05); }
+.ci-theme-clerk.is-light .ci-clerk-code { background: #fff; --line-number: #c9c9c9; }
+
+/* 这里是 OpenAI 配色。 */
+.ci-theme-openai .ci-frame { background: #121a29; }
+.ci-openai-window { position: relative; z-index: 1; overflow: hidden; border: .5px solid rgba(255,255,255,.1); border-radius: 8px; background: #232b41; box-shadow: 0 40px 60px rgba(0,0,0,.12); --line-number: rgba(255,255,255,.2); }
+.ci-theme-openai.is-light .ci-frame { background: linear-gradient(238deg,#f1f0f4,#f8f8fd); }
+.ci-theme-openai.is-light .ci-openai-window { border-color: rgba(0,0,0,.1); background: #fff; --line-number: #a8a8b7; }
+
+/* 这里是 Prisma 配色。 */
+.ci-theme-prisma .ci-frame { background: linear-gradient(140deg,#0c1d26,#0a0c17); }
+.ci-prisma-window { position: relative; border: 1px solid transparent; border-radius: 10px; background: rgba(7,11,25,.75); }
+.ci-prisma-window [data-frame-border]::before { position: absolute; border: 1px solid rgba(72,130,151,.56); border-radius: inherit; content: ""; pointer-events: none; }
+.ci-prisma-window [data-frame-border]:nth-child(1)::before { inset: -6px; }
+.ci-prisma-window [data-frame-border]:nth-child(2)::before { inset: -11px; opacity: .5; }
+.ci-prisma-window [data-frame-border]:nth-child(3)::before { inset: -16px; opacity: .3; }
+.ci-prisma-window [data-frame-border]:nth-child(4)::before { inset: -21px; opacity: .1; }
+.ci-theme-prisma.is-light .ci-frame { background: linear-gradient(140deg,#e8e8ff,#e7fefc); }
+.ci-theme-prisma.is-light .ci-prisma-window { background: rgba(236,251,255,.76); }
+
+/* 这里是 Mintlify 配色。 */
+.ci-theme-mintlify .ci-frame { background: #121212; }
+.ci-mintlify-pattern { position: absolute; z-index: -1; top: 0; right: -25px; width: 600px; max-width: none; pointer-events: none; }
+.ci-mintlify-window { position: relative; z-index: 1; overflow: hidden; border-radius: 12px; background: #070a08; box-shadow: 0 28px 45px rgba(0,0,0,.24); }
+.ci-mintlify-header { display: flex; height: 40px; align-items: center; border-bottom: 1px solid #141818; background: #010201; }
+.ci-mintlify-header input { position: relative; width: auto; min-width: 72px; height: 40px; padding: 0 16px; border: 0; border-bottom: 1px solid currentColor; outline: 0; background: transparent; color: #55d799; font: 500 12px/40px Inter,sans-serif; letter-spacing: .4px; }
+.ci-theme-mintlify.is-light .ci-frame { background: #f6fbf9; }
+.ci-theme-mintlify.is-light .ci-mintlify-window { background: #fff; }
+.ci-theme-mintlify.is-light .ci-mintlify-header { border-color: #dfdfdf; background: #fcfcfc; }
+.ci-theme-mintlify.is-light .ci-mintlify-header input { color: #0d9373; }
+
+/* 保留源实现中的图片纹理资源，用于生成对应的背景效果。 */
+.ci-theme-bitmap.has-background .ci-frame { background-image: url("./code-image/manifesto.png") !important; background-position: center top; background-size: 100%; }
+.ci-theme-noir.has-background .ci-frame { background-image: url("./code-image/distortion.png") !important; background-position: center; background-size: cover; }
+.ci-theme-ice.has-background .ci-frame {
+  background-color: #f6f6f6;
+  background-image: radial-gradient(rgba(0,0,0,.12) 1px, transparent 0) !important;
+  background-position: -8.5px -8.5px;
+  background-size: 17px 17px;
+}
+.ci-theme-ice.is-dark.has-background .ci-frame {
+  background-color: #0e0e0e;
+  background-image: radial-gradient(rgba(255,255,255,.09) 1px, transparent 0) !important;
+}
+
+.ci-export-frame.has-no-background .ci-vercel-grid-horizontal,
+.ci-export-frame.has-no-background .ci-vercel-grid-vertical,
+.ci-export-frame.has-no-background .ci-tailwind-grid-horizontal,
+.ci-export-frame.has-no-background .ci-tailwind-grid-vertical,
+.ci-export-frame.has-no-background .ci-tailwind-gradient { display: none; }
+
+@media (max-width: 900px) {
+  .ci-studio-shell { grid-template-columns: 272px minmax(0, 1fr); }
+  .ci-studio-preview { padding: 18px 16px; }
+  .ci-studio-controls-wrap { padding: 12px 0 12px 12px; }
+}
+
+@media (max-width: 700px) {
+  .ci-studio-shell { grid-template-columns: 244px minmax(0, 1fr); }
+  .ci-studio-controls-wrap { padding: 8px 0 8px 8px; }
+  .ci-studio-controls { padding: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ci-frame { transition: none; }
+}

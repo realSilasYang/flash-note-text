@@ -1,0 +1,24 @@
+{
+  "version": "1.0.2",
+  "main": "index.html",
+  "preload": "preload.js",
+  "logo": "logo.png",
+  "features": [
+    {
+      "code": "flash-note-text",
+      "explain": "快速记录纯文本与 Markdown，并导出便签、代码和社交分享图片",
+      "cmds": [
+        "闪念文本",
+        "闪念",
+        "快速文本",
+        "文本编辑",
+        {
+          "type": "over",
+          "label": "用闪念文本编辑",
+          "minLength": 1,
+          "maxLength": 200000
+        }
+      ]
+    }
+  ]
+}

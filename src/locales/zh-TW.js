@@ -1,0 +1,18 @@
+import zhHK from './zh-HK'
+import mergeLocale from './mergeLocale'
+
+export default mergeLocale(zhHK, {
+  app: { name: '閃念文字' },
+  autoSave: { title: '自動儲存項目', workflowDescription: '開啟後，修改會自動寫回目前項目', helpDescription: '頂端的自動儲存按鈕有開啟與關閉兩種狀態。開啟後，停止輸入 150 毫秒便會寫回目前項目；關閉後，離開外掛、切換項目或儲存檔案都不會將修改寫入歷史記錄，目前內容只會儲存為復原草稿。', guideMessage: '• 自動儲存按鈕可暫停或恢復寫入歷史記錄。關閉後，未提交內容只會保留為復原草稿，不會新增或覆寫歷史項目。' },
+  settings: { themeAuto: '自動調整', themeLight: '日間模式', themeDark: '夜間模式', startup: '進入外掛時', startupRestore: '定位到上次檢視的項目', toggleSidebar: '展開／收合功能側欄', shortcutInvalid: '請使用 Ctrl、Alt 或 Meta 組合鍵，或 F1-F12 功能鍵', retention: '歷史記錄保留方式', byCount: '依筆數', byTime: '依時間', exactDays: '精確天數', maxEntries: '筆數上限', countRange: '範圍：{min} 到 {max}', wordWrap: '編輯區自動換行', rememberSidebarState: '記住功能列展開／收合狀態' },
+  editor: { loadingMarkdown: '正在載入 Markdown 編輯器', readOnlyPreview: '唯讀預覽', noContent: '暫無內容', placeholder: '在此輸入文字...' },
+  search: { matches: '{count} 個符合項目', noMatches: '沒有符合項目', findReplace: '尋找與取代', previous: '上一個符合項目', next: '下一個符合項目', replaceWith: '取代成' },
+  history: { copyText: '複製文字', searchScope: '搜尋歷史標題與內容', results: '搜尋結果 {visible}/{total}', clearAll: '清除所有歷史記錄', noMatching: '找不到符合的歷史記錄', deleteNamed: '刪除歷史項目：{title}', guide: '使用說明', openFile: '開啟檔案', saveFile: '儲存檔案' },
+  status: { collapseSidebarAria: '收合功能側欄（{shortcut}）', expandSidebarAria: '展開功能側欄（{shortcut}）', collapseSidebar: '收合功能側欄', expandSidebar: '展開功能側欄', effectiveCharacters: '有效字元（不含空白）', wordsPhrases: '單字／詞組', nonEmptyLines: '行數（不含空白行）', lineEndingSaving: '儲存時採用的換行格式', historyUnicode: '歷史內容以 Unicode 文字儲存', savingEncoding: '儲存時採用：{encoding}', lowConfidence: '自動偵測編碼的信心度較低；若文字顯示異常，請切換編碼後重新讀取。', candidates: '候選編碼：', reloadEncoding: '使用此編碼重新讀取' },
+  dialogs: { clearBody: '確定要清除全部 {count} 筆歷史記錄嗎？', retentionBody: '新的保留範圍會永久刪除 {count} 筆超出限制的歷史記錄。是否繼續？', goToLine: '跳至指定行' },
+  help: { startGuide: '開始新手導覽', historyDesc: '新增或聚焦一筆臨時內容', editorDesc: '編輯區只顯示目前項目', autosaveDesc: '修改會自動寫回同一筆歷史項目', featureEntryDesc: 'Ctrl+N 會立即建立項目；編輯時更新目前項目，刪除後會自動聚焦下一筆。', featureSearchDesc: '側欄搜尋會比對所有項目的標題與內容；Ctrl+F、Ctrl+H 只處理目前項目。', featurePreviewTitle: '懸停預覽與排序', featurePreviewDesc: '將游標停在其他項目上 500 毫秒，即可在編輯區預覽完整內容；也可直接拖曳整張卡片排序。', featureMarkdownDesc: '純文字與 Markdown 共用同一編輯區；Ctrl+/ 可切換目前項目的編輯模式。', featureEncodingDesc: '開啟檔案時會自動辨識常用編碼，也可手動重新讀取；儲存前可在底部狀態列選擇輸出編碼。', featureEmptyDesc: '沒有標題與內容的項目不會保留，也不會占用歷史記錄容量。', shortcutReplace: '在項目內尋找與取代', shortcutSidebar: '展開／收合功能側欄', shortcutRename: '重新命名游標所在項目', shortcutDelete: '刪除游標所在項目' },
+  guide: { skip: '略過', historyMessage: '編輯區始終只屬於目前聚焦的項目。\n\n• 點選項目即可聚焦。\n• 將游標停在其他項目上 500 毫秒可暫時預覽。\n• 直接拖曳整張卡片排序；懸停時可按 {key:F2} 或 {key:Delete}。', actionsMessage: '頂端只保留處理臨時內容時最常用的操作。\n\n• {bold:新增}會建立並聚焦項目（{key:Ctrl+N}）。\n• {bold:複製}會複製目前顯示的項目。\n• {bold:搜尋}會同時比對所有歷史記錄的標題與內容。', editorMessage: '在此編輯聚焦項目，修改會自動寫回同一筆歷史記錄。\n\n• {key:Ctrl+/} 切換純文字與 Markdown。\n• {key:Ctrl+F} 尋找，{key:Ctrl+H} 尋找與取代。\n• {key:Ctrl+Z} 與 {key:Ctrl+Shift+Z} 復原與重做操作。', statusMessage: '將游標移至各資訊區域即可開啟對應控制。\n\n• 查看詳細文件統計。\n• 切換編輯模式與縮放。\n• 選擇換行格式與檔案編碼。\n• 最左側區域用於展開或收合功能側欄。', toolsMessage: '全域工具集中在側欄底部。\n\n• 設定主題、語言、歷史記錄保留規則與啟動行為。\n• 從使用說明重新開始此導覽。\n• 開啟不同編碼的文字檔案，或將聚焦項目儲存至每次指定的位置。' },
+  notice: { nothingUndo: '沒有可復原的操作', shortcutSet: '功能側欄快捷鍵已設為 {shortcut}', runInUtools: '請在 uTools 中執行此外掛', conflictPreserved: '偵測到同步衝突，已保留本機副本。', openedLowConfidence: '已開啟 {name}。編碼辨識信心度較低，請確認文字內容。', noAssociatedFile: '目前內容尚未關聯檔案', deletedOne: '已刪除 1 筆歷史記錄', clearFailed: '清除失敗，已重新載入剩餘歷史記錄。', retentionCountSet: '歷史記錄上限已設為 {count} 筆', enterFind: '請輸入要尋找的文字', replacedOne: '已取代 1 處', replacedMany: '已取代 {count} 處' },
+  error: { renderError: '介面呈現錯誤', renderTitle: '介面暫時無法顯示', renderBody: '請重新載入外掛。臨時文字與歷史記錄通常仍儲存在本機。' },
+  age: { days: '{count} 天', months: '{count} 個月', years: '{count} 年' }
+})

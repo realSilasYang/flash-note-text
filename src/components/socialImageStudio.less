@@ -1,0 +1,467 @@
+.social-image-studio {
+  display: grid;
+  grid-template-rows: 50px minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  background: var(--share-studio-bg);
+}
+
+.social-image-workspace {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+}
+
+.social-image-preview {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 24px 30px;
+  background: var(--share-studio-bg);
+}
+
+.social-image-preview-scaler { position: absolute; top: 50%; left: 50%; flex: 0 0 auto; margin: 0; transform: translate(-50%, -50%); }
+
+.social-image-preview-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  transform-origin: top left;
+}
+.social-image-preview [data-preview-pan-content] { will-change: auto; }
+
+/* 预览较长的社交卡片时限制绘制区域，避免浏览器分配过大的 GPU 纹理。 */
+.social-image-preview[data-preview-heavy] [data-preview-pan-content] {
+  contain: layout paint;
+  will-change: auto;
+}
+
+.social-image-controls-wrap {
+  z-index: 20;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  padding: 16px 0 16px 16px;
+  background: var(--share-studio-bg);
+}
+
+.social-image-controls {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-content: start;
+  align-items: start;
+  padding: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px dashed var(--share-studio-border);
+  border-radius: 8px;
+  background: var(--share-studio-panel);
+  column-gap: 10px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  row-gap: 15px;
+}
+.social-image-controls.is-wechat {
+  align-content: stretch;
+  grid-template-rows: minmax(0, 1fr) auto auto auto;
+}
+.social-image-controls.is-wechat > .social-wechat-selection-control {
+  align-self: stretch;
+}
+
+.social-image-controls .share-studio-control-label {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+}
+
+.social-image-controls .share-studio-control-body { justify-content: center; }
+.social-image-control-span-2 { grid-column: span 2; }
+.social-image-control-span-3 { grid-column: span 3; }
+.social-image-control-span-4 { grid-column: span 4; }
+.social-image-control-span-5 { grid-column: span 5; }
+.social-image-control-span-6 { grid-column: span 6; }
+.social-image-control-span-12 { grid-column: 1 / -1; }
+
+.social-image-controls .share-studio-compact-input,
+.social-image-controls .share-studio-compact-input .MuiInputBase-root,
+.social-image-controls .share-studio-compact-select { width: 100%; }
+
+.social-image-qr-picker {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.social-image-qr-picker img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border: 1px solid var(--share-studio-control-border);
+  border-radius: 4px;
+  object-fit: contain;
+  background: #F2F2F0;
+}
+.social-image-hidden-file-input { display: none; }
+
+.social-image-theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px 2px;
+}
+.social-image-theme-options .MuiToggleButton-root {
+  display: flex;
+  width: 64px;
+  min-width: 64px;
+  height: 34px;
+  min-height: 34px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid transparent !important;
+  border-radius: 5px !important;
+}
+.social-image-theme-options .MuiToggleButton-root.Mui-selected { background: var(--share-studio-selected); }
+.social-image-theme-options .MuiToggleButton-root.Mui-selected .social-image-theme-preview {
+  border-color: currentColor;
+  box-shadow: 0 0 0 1px var(--share-studio-accent);
+}
+.social-image-theme-option {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+}
+.social-image-theme-preview {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(127,127,127,.5);
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.15;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.social-image-brand-options { display: flex; align-items: center; justify-content: center; }
+.social-image-brand-options .MuiToggleButton-root {
+  display: flex;
+  width: 56px;
+  min-width: 56px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+}
+.social-image-brand-options .MuiToggleButton-root.Mui-selected { background: var(--share-studio-selected); }
+.social-image-brand-x-mark { width: 18px; height: 18px; color: var(--share-studio-text); }
+
+.social-wechat-selection {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  resize: none;
+  box-sizing: border-box;
+  padding: 5px 7px;
+  border: 1px solid var(--share-studio-control-border);
+  border-radius: 6px;
+  outline: none;
+  background: var(--share-studio-control);
+  color: var(--share-studio-muted);
+  font: 12px/16px var(--content-font-family);
+  scrollbar-width: thin;
+}
+.social-wechat-selection-control {
+  height: 100%;
+  min-height: 0;
+}
+.social-wechat-selection-control .share-studio-control-body {
+  min-height: 0;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+.social-wechat-selection:focus { border-color: var(--share-studio-accent); }
+.social-wechat-selection::selection { background: rgba(93,124,102,.42); color: var(--share-studio-text); }
+
+.social-image-canvas {
+  flex: none;
+  box-sizing: border-box;
+  letter-spacing: 0;
+  text-rendering: geometricPrecision;
+}
+
+.social-x-canvas {
+  display: flex;
+  width: 892px;
+  min-height: 641px;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 34px 36px 32px;
+  border-radius: 44px;
+  background: #15222B;
+  color: #F4F6F7;
+  font-family: Arial, "Helvetica Neue", "Microsoft YaHei", sans-serif;
+}
+
+.social-x-header {
+  display: grid;
+  align-items: center;
+  margin-bottom: 27px;
+  column-gap: 24px;
+  grid-template-columns: 112px minmax(0, 1fr) 66px;
+}
+
+.social-x-avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.social-x-identity { min-width: 0; }
+.social-x-identity strong,
+.social-x-identity span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.social-x-identity strong { color: #F6F8F9; font-size: 44px; font-weight: 700; line-height: 1.16; }
+.social-x-identity span { margin-top: 7px; color: #94A1AD; font-size: 36px; font-weight: 400; line-height: 1.15; }
+.social-x-mark { color: #F4F6F7; }
+.social-x-legacy-mark { width: 64px; height: 64px; }
+.social-twitter-bird-mark { align-self: center; }
+
+.social-x-copy {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  color: #F4F6F7;
+  font-size: 43px;
+  font-weight: 400;
+  line-height: 1.31;
+}
+.social-x-url { overflow-wrap: anywhere; font-size: 46.5px; word-break: break-all; }
+
+.social-x-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 54px 8px 0;
+  color: #91A0AC;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.social-zhihu-canvas {
+  width: 1200px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--zhihu-main);
+  color: var(--zhihu-text);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+}
+
+.social-zhihu-main {
+  box-sizing: border-box;
+  padding: 82px 82px 124px;
+  background: var(--zhihu-main);
+}
+
+.social-zhihu-quote {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  color: var(--zhihu-quote);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 178px;
+  font-weight: 700;
+  line-height: .92;
+}
+
+.social-zhihu-copy {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  color: var(--zhihu-text);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.825;
+}
+
+.social-zhihu-attribution {
+  display: flex;
+  height: 142px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 56px;
+}
+
+.social-zhihu-author { display: flex; min-width: 0; align-items: center; gap: 28px; }
+.social-zhihu-author img { width: 140px; height: 140px; flex: 0 0 140px; border-radius: 50%; object-fit: cover; }
+.social-zhihu-author strong { overflow: hidden; max-width: 560px; color: var(--zhihu-author); font-size: 42px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.social-zhihu-brand { color: var(--zhihu-brand); font-family: "Microsoft YaHei", sans-serif; font-size: 76px; font-weight: 400; line-height: 1; }
+
+.social-zhihu-footer {
+  position: relative;
+  display: flex;
+  height: 415px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 121px 82px 62px;
+  background: var(--zhihu-footer);
+}
+
+.social-zhihu-notch {
+  position: absolute;
+  top: 0;
+  left: 196px;
+  width: 0;
+  height: 0;
+  border-top: 66px solid var(--zhihu-main);
+  border-right: 48px solid transparent;
+  border-left: 48px solid transparent;
+}
+
+.social-zhihu-footer-copy { width: 760px; min-width: 0; }
+.social-zhihu-footer-copy strong {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--zhihu-footer-text);
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.48;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.social-zhihu-footer-copy span { display: block; margin-top: 24px; color: var(--zhihu-footer-muted); font-size: 36px; font-weight: 400; line-height: 1.2; }
+.social-zhihu-qr {
+  position: relative;
+  display: block;
+  width: 206px;
+  height: 206px;
+  flex: 0 0 206px;
+  box-sizing: border-box;
+  border: 4px solid var(--ghibli-primary);
+  border-radius: 13px;
+  overflow: hidden;
+  background: #F2F2F0;
+}
+
+.social-donation-qr-image,
+.social-donation-qr-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.social-donation-qr-image { filter: invert(1) hue-rotate(180deg) contrast(1.35); }
+.social-donation-qr.is-custom .social-donation-qr-image { filter: none; }
+.social-donation-qr-logo {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(39% 39% 39% 39%);
+}
+
+.social-wechat-canvas {
+  width: 1200px;
+  min-height: 1000px;
+  overflow: hidden;
+  padding-top: 170px;
+  background: #F7F7F7;
+  color: #090909;
+  font-family: "Songti SC", STSong, SimSun, "Noto Serif CJK SC", serif;
+}
+
+.social-wechat-copy-wrap {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.social-wechat-copy {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.78;
+}
+
+.social-wechat-faded {
+  color: #C9C9C9;
+}
+
+.social-wechat-fade-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(247,247,247,.91) 0%, rgba(247,247,247,.28) 31%, rgba(247,247,247,.28) 69%, rgba(247,247,247,.91) 100%);
+  pointer-events: none;
+}
+
+.social-wechat-emphasis { position: absolute; z-index: 2; inset: 0; color: transparent; }
+.social-wechat-emphasis span { color: transparent; }
+.social-wechat-emphasis strong { color: #080808; font: inherit; }
+
+.social-wechat-footer {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 283px;
+  padding: 0 75px 50px;
+}
+
+.social-wechat-profile { display: flex; min-width: 0; align-items: center; gap: 25px; }
+.social-wechat-profile > img { width: 108px; height: 108px; flex: 0 0 108px; border-radius: 50%; object-fit: cover; }
+.social-wechat-profile > div { min-width: 0; }
+.social-wechat-author { display: flex; align-items: center; gap: 11px; }
+.social-wechat-author strong { overflow: hidden; max-width: 560px; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 38px; font-weight: 400; text-overflow: ellipsis; white-space: nowrap; }
+.social-wechat-verified { display: block; width: 40px; height: 40px; flex: 0 0 40px; }
+.social-wechat-title { overflow: hidden; max-width: 700px; margin-top: 21px; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 36px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.social-wechat-qr {
+  position: relative;
+  display: block;
+  width: 168px;
+  height: 168px;
+  flex: 0 0 168px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 4px solid var(--ghibli-primary);
+  border-radius: 10px;
+  background: #F2F2F0;
+}
+
+@media (max-width: 900px) {
+  .social-image-workspace { grid-template-columns: 272px minmax(0, 1fr); }
+  .social-image-preview { padding: 18px 16px; }
+  .social-image-controls-wrap { padding: 12px 0 12px 12px; }
+}
+
+@media (max-width: 620px) {
+  .social-image-workspace { grid-template-columns: 244px minmax(0, 1fr); }
+  .social-image-preview { padding: 12px 10px; }
+  .social-image-controls-wrap { padding: 8px 0 8px 8px; }
+  .social-image-controls { padding: 12px; }
+}

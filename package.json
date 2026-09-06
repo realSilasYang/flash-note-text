@@ -1,0 +1,78 @@
+{
+  "name": "flash-note-text",
+  "version": "1.0.2",
+  "private": true,
+  "license": "MIT",
+  "author": "realSilasYang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realSilasYang/flash-note-text.git"
+  },
+  "homepage": "https://github.com/realSilasYang/flash-note-text#readme",
+  "bugs": {
+    "url": "https://github.com/realSilasYang/flash-note-text/issues"
+  },
+  "scripts": {
+    "dev": "webpack -w --mode development",
+    "build": "webpack --mode production",
+    "clean": "node scripts/clean.cjs",
+    "verify-release": "node scripts/verify-release.cjs",
+    "release:build": "npm run clean && npm run build && npm run verify-release"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.10.4",
+    "@codemirror/language": "^6.12.4",
+    "@codemirror/language-data": "^6.5.2",
+    "@codemirror/search": "^6.7.1",
+    "@codemirror/state": "^6.7.1",
+    "@codemirror/view": "^6.43.8",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@fontsource/fira-code": "^5.3.0",
+    "@fontsource/geist-mono": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@lezer/highlight": "^1.2.3",
+    "@milkdown/crepe": "7.22.0",
+    "@milkdown/kit": "7.22.0",
+    "@milkdown/react": "7.22.0",
+    "@mui/icons-material": "7.3.11",
+    "@mui/material": "7.3.11",
+    "canvas-confetti": "1.9.4",
+    "chardet": "2.2.0",
+    "chroma-js": "^3.1.2",
+    "codemirror-shiki": "^0.3.0",
+    "highlight.js": "^11.11.1",
+    "html-to-image": "^1.11.13",
+    "iconv-lite": "0.6.3",
+    "prettier": "^3.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "shiki": "^4.4.3",
+    "simple-icons": "^16.28.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.7",
+    "@babel/preset-env": "7.29.7",
+    "@babel/preset-react": "7.29.7",
+    "babel-loader": "10.1.1",
+    "copy-webpack-plugin": "14.0.0",
+    "css-loader": "7.1.4",
+    "less": "4.8.1",
+    "less-loader": "12.3.3",
+    "minimizer-webpack-plugin": "5.6.1",
+    "style-loader": "4.0.0",
+    "webpack": "5.109.2",
+    "webpack-cli": "6.0.1"
+  },
+  "overrides": {
+    "fast-uri": "3.1.5",
+    "postcss": {
+      ".": "8.5.24",
+      "nanoid": "3.3.18"
+    },
+    "yaml": "1.10.3"
+  }
+}
