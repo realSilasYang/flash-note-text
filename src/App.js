@@ -239,8 +239,8 @@ function App ({ initialSettings }) {
   const guideSteps = useMemo(() => [
     { selector: '#guide-history-list', placement: 'right', title: t(language, 'guide.historyTitle'), message: t(language, 'guide.historyMessage') },
     { selector: '#guide-sidebar-actions', placement: 'right', title: t(language, 'guide.actionsTitle'), message: `${t(language, 'guide.actionsMessage')}\n${t(language, 'autoSave.guideMessage')}` },
-    { selector: '#guide-editor', placement: 'inside', title: t(language, 'guide.editorTitle'), message: `${t(language, 'guide.editorMessage')}\n\n• ${t(language, 'help.formattingDesc')}\n\n• ${t(language, 'help.aiDesc')}` },
-    { selector: '#guide-statusbar', placement: 'top', title: t(language, 'guide.statusTitle'), message: `${t(language, 'guide.statusMessage')}\n\n• ${t(language, 'help.imageShareDesc')}\n\n• ${t(language, 'share.xhs.guideMessage')}` },
+    { selector: '#guide-editor', placement: 'inside', title: t(language, 'guide.editorTitle'), message: `${t(language, 'help.featureMarkdownDesc')}\n\n• ${t(language, 'help.formattingDesc')}\n\n• ${t(language, 'help.aiDesc')}` },
+    { selector: '#guide-statusbar', placement: 'top', title: t(language, 'guide.statusTitle'), message: `${t(language, 'guide.statusMessage')}\n\n• ${t(language, 'help.featureEncodingDesc')}\n\n• ${t(language, 'help.imageShareDesc')}\n\n• ${t(language, 'share.xhs.guideMessage')}` },
     { selector: '#guide-sidebar-tools', placement: 'right', title: t(language, 'guide.toolsTitle'), message: t(language, 'guide.toolsMessage') }
   ], [language])
 

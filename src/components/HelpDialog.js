@@ -175,26 +175,24 @@ function HelpDialog ({ isDark, language, onClose, onDonationThanks, onStartGuide
           >
             {t(language, 'help.startGuide')}
           </Button>
-          <ActionTooltip title={t(language, 'donation.openSourceTooltip')} describeChild>
-            <Button
-              variant="contained"
-              size="small"
-              startIcon={<GitHubIcon />}
-              onClick={handleOpenSource}
-              sx={{
-                bgcolor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
+          <Button
+            variant="contained"
+            size="small"
+            startIcon={<GitHubIcon />}
+            onClick={handleOpenSource}
+            sx={{
+              bgcolor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
+              color: isDark ? '#f0f6fc' : '#24292f',
+              boxShadow: 'none',
+              '&:hover': {
+                bgcolor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.08)',
                 color: isDark ? '#f0f6fc' : '#24292f',
-                boxShadow: 'none',
-                '&:hover': {
-                  bgcolor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.08)',
-                  color: isDark ? '#f0f6fc' : '#24292f',
-                  boxShadow: 'none'
-                }
-              }}
-            >
-              {t(language, 'donation.openSource')}
-            </Button>
-          </ActionTooltip>
+                boxShadow: 'none'
+              }
+            }}
+          >
+            {t(language, 'donation.openSource')}
+          </Button>
           <ActionTooltip title={t(language, 'donation.tooltip')} describeChild>
             <Button
               variant="contained"
