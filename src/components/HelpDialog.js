@@ -9,11 +9,14 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import GitHubIcon from '@mui/icons-material/GitHub'
 import SchoolIcon from '@mui/icons-material/School'
 import ActionTooltip from './ActionTooltip'
 import DonationDialog from './DonationDialog'
 import { triggerConfetti } from '../confettiEffect'
 import { t } from '../locales'
+
+const OPEN_SOURCE_URL = 'https://github.com/realSilasYang/flash-note-text'
 
 function KeyTag ({ children, isDark }) {
   return (
@@ -69,6 +72,15 @@ function HelpDialog ({ isDark, language, onClose, onDonationThanks, onStartGuide
     if (!shouldThank) return
     triggerConfetti({ zIndex: 1350 })
     onDonationThanks?.()
+  }
+
+  const handleOpenSource = () => {
+    const shellOpenExternal = window.utools?.shellOpenExternal
+    if (typeof shellOpenExternal === 'function') {
+      shellOpenExternal(OPEN_SOURCE_URL)
+      return
+    }
+    window.open(OPEN_SOURCE_URL, '_blank', 'noopener,noreferrer')
   }
 
   const workflow = [
@@ -163,6 +175,26 @@ function HelpDialog ({ isDark, language, onClose, onDonationThanks, onStartGuide
           >
             {t(language, 'help.startGuide')}
           </Button>
+          <ActionTooltip title={t(language, 'donation.openSourceTooltip')} describeChild>
+            <Button
+              variant="contained"
+              size="small"
+              startIcon={<GitHubIcon />}
+              onClick={handleOpenSource}
+              sx={{
+                bgcolor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
+                color: isDark ? '#f0f6fc' : '#24292f',
+                boxShadow: 'none',
+                '&:hover': {
+                  bgcolor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.08)',
+                  color: isDark ? '#f0f6fc' : '#24292f',
+                  boxShadow: 'none'
+                }
+              }}
+            >
+              {t(language, 'donation.openSource')}
+            </Button>
+          </ActionTooltip>
           <ActionTooltip title={t(language, 'donation.tooltip')} describeChild>
             <Button
               variant="contained"
