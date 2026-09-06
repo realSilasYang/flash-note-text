@@ -5,7 +5,7 @@
 
   <h1>闪念文本 · Flash Note Text</h1>
 
-  <p><strong>面向 uTools 的轻量文本工作台：快速记录、整理 Markdown、打开编码文件，并把内容导出为可分享的图片。</strong></p>
+  <p><strong>随时记录、整理和分享文字。</strong></p>
 
   <p>
     <a href="https://github.com/realSilasYang/flash-note-text/releases"><img src="https://img.shields.io/github/v/release/realSilasYang/flash-note-text?style=flat-square&amp;label=version" alt="最新版本"></a>
@@ -28,13 +28,20 @@
 
 ## 界面概览
 
-界面由历史侧栏、编辑区和底部状态栏组成：
+<p align="center">
+  <img src="./docs/screenshots/editor-dark.png" width="49%" alt="深色主题主界面">
+  <img src="./docs/screenshots/editor-light.png" width="49%" alt="浅色主题主界面">
+</p>
 
-- **历史侧栏**：新建、搜索、重命名、删除、排序和切换历史条目；悬浮条目约 500ms 可在编辑区只读预览。
-- **编辑区**：按条目独立保存内容，可在纯文本、Markdown 和代码模式之间切换。Markdown 光标位于格式作用范围内时显示源码，移出范围后恢复渲染。
-- **操作栏**：提供查找替换、文本排版、图片分享、AI、打开和保存文件等操作。
-- **状态栏**：显示字符统计、编辑模式、缩放、换行格式、文件编码和代码语言，可直接切换对应状态。
-- **设置与使用说明**：可设置主题、界面语言、启动行为、历史保留方式、自动换行、侧栏快捷键、AI 参数和图片保存目录。
+<p align="center">
+  <img src="./docs/screenshots/editor-preview.png" width="49%" alt="主界面与预览">
+  <img src="./docs/screenshots/settings.png" width="49%" alt="设置界面">
+</p>
+
+<p align="center">
+  <img src="./docs/screenshots/help-overview.png" width="49%" alt="帮助与功能介绍">
+  <img src="./docs/screenshots/guide-groups.png" width="49%" alt="新手引导分组管理">
+</p>
 
 ## 功能概览
 
