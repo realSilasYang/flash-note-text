@@ -7,6 +7,16 @@
 
 Flash Note Text는 임시 메모와 텍스트 변환을 위한 uTools 플러그인입니다. 일반 텍스트, Markdown, 코드 편집을 기록, 초안 복구, 텍스트 정리, 인코딩 감지, 이미지 공유 및 선택적 AI 기능과 함께 제공합니다.
 
+## 후원
+
+Flash Note Text가 기록, 텍스트 정리와 이미지 공유에 드는 시간을 줄여 주었다면 아래 QR 코드로 개발자를 후원할 수 있습니다. 결제 방법을 선택해 주세요.
+
+<p align="center">
+  <img src="../public/donate/wechat-pay.png" width="220" alt="WeChat Pay 후원 QR 코드">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../public/donate/alipay.png" width="220" alt="Alipay 후원 QR 코드">
+</p>
+
 ## 주요 기능
 
 - 일반 텍스트, Markdown, 코드 모드. Markdown 마크업 안에서는 소스가 보이고 밖에서는 렌더링됩니다.

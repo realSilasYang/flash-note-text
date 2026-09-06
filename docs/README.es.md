@@ -7,6 +7,16 @@
 
 Flash Note Text es un plugin de uTools para notas temporales y conversión de texto. Reúne edición de texto plano, Markdown y código con historial, recuperación de borradores, formato, detección de codificación, imágenes compartibles y AI opcional.
 
+## Donaciones
+
+Si Flash Note Text te ahorra tiempo al tomar notas, formatear o compartir texto, puedes apoyar al autor mediante los códigos QR siguientes. Elige un método de pago:
+
+<p align="center">
+  <img src="../public/donate/wechat-pay.png" width="220" alt="Código QR de donación por WeChat Pay">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../public/donate/alipay.png" width="220" alt="Código QR de donación por Alipay">
+</p>
+
 ## Funciones
 
 - Modos de texto plano, Markdown y código; muestra el código fuente dentro del marcado Markdown y el resultado renderizado fuera.

@@ -104,6 +104,16 @@ LF、CRLF、CR 和混合换行均可识别；未主动修改混合换行格式�
 
 开发版本可以直接运行 `npm run release:build`，然后在 uTools 开发者工具中选择项目生成的 `dist` 目录。正式发布时请使用构建后的 `dist` 内容，不要把 `node_modules` 或源码目录作为插件目录加载。
 
+## 打赏
+
+如果闪念文本为您节省了临时记录、文本整理和图片制作的时间，欢迎通过下方二维码打赏作者。请选择支持方式：
+
+<p align="center">
+  <img src="public/donate/wechat-pay.png" width="220" alt="微信支付打赏二维码">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="public/donate/alipay.png" width="220" alt="支付宝打赏二维码">
+</p>
+
 ## 用户使用指南
 
 ### 1. 初次使用

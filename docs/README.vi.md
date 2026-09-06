@@ -7,6 +7,16 @@
 
 Flash Note Text là plugin uTools dành cho ghi chú tạm thời và chuyển đổi văn bản. Plugin gộp trình soạn thảo văn bản thuần, Markdown và mã nguồn, cùng lịch sử, khôi phục bản nháp, định dạng văn bản, nhận diện bảng mã, chia sẻ hình ảnh và AI tùy chọn.
 
+## Ủng hộ
+
+Nếu Flash Note Text giúp bạn tiết kiệm thời gian ghi chú, định dạng và chia sẻ văn bản, bạn có thể ủng hộ tác giả qua các mã QR bên dưới. Vui lòng chọn phương thức thanh toán:
+
+<p align="center">
+  <img src="../public/donate/wechat-pay.png" width="220" alt="Mã QR ủng hộ qua WeChat Pay">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../public/donate/alipay.png" width="220" alt="Mã QR ủng hộ qua Alipay">
+</p>
+
 ## Tính năng
 
 - Ba chế độ văn bản thuần, Markdown và mã nguồn; hiển thị mã trong vùng đánh dấu Markdown và hiển thị kết quả bên ngoài vùng đó.

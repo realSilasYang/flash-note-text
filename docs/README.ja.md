@@ -7,6 +7,16 @@
 
 閃念文本は、プレーンテキスト、Markdown、コード編集を一つの画面にまとめた uTools プラグインです。履歴、下書き復元、テキスト整形、文字コード判定、画像共有、任意の AI 機能を利用できます。
 
+## ご支援
+
+閃念文本がメモ、文章の整形、画像作成の時間短縮に役立った場合は、下の QR コードから作者をご支援いただけます。お支払い方法をお選びください。
+
+<p align="center">
+  <img src="../public/donate/wechat-pay.png" width="220" alt="WeChat Pay 寄付用 QR コード">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../public/donate/alipay.png" width="220" alt="Alipay 寄付用 QR コード">
+</p>
+
 ## 主な機能
 
 - プレーンテキスト、Markdown、コードモード。Markdown のマークアップ内ではソースを表示し、外側ではレンダリングします。

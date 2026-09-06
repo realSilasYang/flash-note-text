@@ -7,6 +7,16 @@
 
 閃念文本是一個 uTools 外掛，將純文字、Markdown 和程式碼編輯集中於同一個視窗，並提供歷史記錄、草稿恢復、文字排版、編碼識別、圖片分享和可選的 AI 功能。
 
+## 贊助
+
+如果閃念文本為您節省了臨時記錄、文字整理和圖片製作的時間，歡迎透過下方 QR Code 贊助作者。請選擇贊助方式：
+
+<p align="center">
+  <img src="../public/donate/wechat-pay.png" width="220" alt="微信支付贊助 QR Code">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="../public/donate/alipay.png" width="220" alt="支付寶贊助 QR Code">
+</p>
+
 ## 功能
 
 - 純文字、Markdown 和程式碼模式；Markdown 標記範圍內顯示原始碼，移出後恢復渲染。
