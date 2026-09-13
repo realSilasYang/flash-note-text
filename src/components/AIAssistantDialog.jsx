@@ -6,6 +6,7 @@ import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined'
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined'
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined'
+import LocalFloristOutlinedIcon from '@mui/icons-material/LocalFloristOutlined'
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -123,6 +124,27 @@ function AIAssistantDialog ({ aiFormattingPrompt, aiImageGenerationPrompt, aiMod
       return
     }
     referenceInputRef.current?.click()
+  }
+
+  const chooseBuiltInReference = async () => {
+    if (busy) return
+    try {
+      const response = await fetch('./ai-reference/caomu-huajian.jpg')
+      if (!response.ok) throw new Error('BUILT_IN_REFERENCE_UNAVAILABLE')
+      const bytes = await response.arrayBuffer()
+      const prepareReferenceImage = window.imageServices?.prepareReferenceImage
+      const prepared = typeof prepareReferenceImage === 'function'
+        ? await prepareReferenceImage(bytes)
+        : { dataUrl: await readFileAsDataUrl(new Blob([bytes], { type: 'image/jpeg' })) }
+      if (!prepared?.dataUrl) throw new Error('BUILT_IN_REFERENCE_INVALID')
+      setReference({ name: t(language, 'ai.builtInReferenceName'), dataUrl: prepared.dataUrl })
+      setResult('')
+      setReasoning('')
+      setGeneratedImage(null)
+      setError('')
+    } catch {
+      setError(t(language, 'ai.imageInvalid'))
+    }
   }
 
   const run = async () => {
@@ -295,9 +317,12 @@ function AIAssistantDialog ({ aiFormattingPrompt, aiImageGenerationPrompt, aiMod
             disabled={busy}
           />
           {isImageGeneration ? (
-            <Stack direction="row" alignItems="center" spacing={1}>
+            <Stack direction="row" alignItems="center" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
               <Button variant="outlined" size="small" startIcon={<ImageOutlinedIcon />} onClick={openReferencePicker} disabled={busy}>
                 {t(language, 'ai.chooseReference')}
+              </Button>
+              <Button variant="outlined" size="small" startIcon={<LocalFloristOutlinedIcon />} onClick={chooseBuiltInReference} disabled={busy}>
+                {t(language, 'ai.chooseBuiltInReference')}
               </Button>
               <input ref={referenceInputRef} hidden type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/avif,image/tiff,image/svg+xml" onChange={chooseReference} />
               {hasReference ? <Typography variant="caption" color="text.secondary" noWrap sx={{ minWidth: 0, flex: 1 }}>{reference.name}</Typography> : null}

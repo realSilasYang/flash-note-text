@@ -28,6 +28,8 @@ const zh = {
 
   referenceImage: "参考图",
   chooseReference: "选择参考图",
+  chooseBuiltInReference: "内置参考图",
+  builtInReferenceName: "草木花笺",
   removeReference: "移除参考图",
   result: "预览结果",
   generateImage: "生成图片",
@@ -118,6 +120,8 @@ const en = {
   inputPlaceholder: "Describe what you want AI to do…",
   referenceImage: "Reference image",
   chooseReference: "Choose reference",
+  chooseBuiltInReference: "Built-in reference",
+  builtInReferenceName: "草木花笺",
   removeReference: "Remove reference",
   result: "Prompt result",
   generateImage: "Generate image",
@@ -1492,6 +1496,21 @@ const localizedImageGenerationDiagnosticCopy = {
   },
 };
 
+const localizedBuiltInReferenceCopy = {
+  "zh-HK": "內建參考圖",
+  "zh-TW": "內建參考圖",
+  ja: "内蔵参照画像",
+  vi: "Ảnh tham chiếu có sẵn",
+  ko: "내장 참조 이미지",
+  es: "Imagen de referencia integrada",
+  fr: "Image de référence intégrée",
+  "pt-BR": "Imagem de referência integrada",
+  "pt-PT": "Imagem de referência integrada",
+  ru: "Встроенное референс-изображение",
+  de: "Integriertes Referenzbild",
+  it: "Immagine di riferimento integrata",
+};
+
 for (const [language, copy] of Object.entries(localizedImageGenerationCopy)) {
   Object.assign(localizedOverrides[language], copy);
 }
@@ -1530,6 +1549,12 @@ for (const [language, copy] of Object.entries(
   localizedImageGenerationDiagnosticCopy,
 )) {
   Object.assign(localizedOverrides[language], copy);
+}
+
+for (const [language, chooseBuiltInReference] of Object.entries(
+  localizedBuiltInReferenceCopy,
+)) {
+  Object.assign(localizedOverrides[language], { chooseBuiltInReference });
 }
 
 const directAiKeys = [

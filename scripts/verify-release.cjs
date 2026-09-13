@@ -20,6 +20,7 @@ const allowedRootFiles = new Set([
 const allowedRootDirectories = new Set([
   'chunks',
   'code-image',
+  'ai-reference',
   'cursors',
   'donate',
   'fonts',
